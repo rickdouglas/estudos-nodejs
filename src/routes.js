@@ -1,15 +1,12 @@
-const express = require('express');
+const express = require("express");
 const routes = express.Router();
 
+//Importar o ProductController
+const ProductController = require("./controllers/ProductController");
+
 // Crinando a primeira rota
-routes.get('/', (rec, res)=>{
+routes.get("/products", ProductController.index);
+routes.post('/products', ProductController.store);
 
-	// Product.create({ // teste da model product
-	// 	title: "Estudos nodeJs",
-	// 	description : "Testar se esta funcionando",
-	// 	url: "http://github.com/facebook/react-native"
-	// });
 
-	return res.send('Hello from the other side motherfucker !!!');
-});
 module.exports = routes;
